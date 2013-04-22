@@ -19,6 +19,17 @@ let s:blue = "d9df8c"
 let s:purple = "c2a770"
 let s:window = "efefef"
 
+
+let s:diffaddfg = "ebefe7"
+let s:diffaddbg = "718c00"
+let s:diffremovefg = "ebefe7"
+let s:diffremovebg = "c82829"
+let s:diffchangefg = "3e999f"
+let s:diffchangebg = "3e999f"
+let s:diffchangehighlight = "e48226"
+let s:difftext = "ebefe7"
+
+
 set background=dark
 hi clear
 syntax reset
@@ -341,8 +352,10 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("htmlScriptTag", s:red, "", "")
 
 	" Diff Highlighting
-	call <SID>X("diffAdded", s:green, "", "")
-	call <SID>X("diffRemoved", s:red, "", "")
+	call <SID>X("DiffAdd", s:diffaddfg, s:diffaddbg, "")
+	call <SID>X("DiffDelete", s:diffremovefg, s:diffremovebg, "")
+	call <SID>X("DiffChange", s:diffchangefg, s:diffchangebg, "none")
+	call <SID>X("DiffText", s:difftext, s:diffchangehighlight, "")
 
 	" Delete Functions
 	delf <SID>X
